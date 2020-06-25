@@ -69,7 +69,7 @@ func main() {
 		pc.H, err = pc.Open(src)
 		defer pc.H.Close()
 		if err != nil {
-			log.Println("tccp read hand error is: ", err)
+			log.Println("tcpp read hand error is: ", err)
 		}
 
 		pc.Decode(expr)
@@ -97,7 +97,7 @@ func main() {
 	pc.H, err = pc.ReadFilter(expr)
 	defer pc.H.Close()
 	if err != nil {
-		log.Println("tccp read hand error is: ", err)
+		log.Println("tcpp read hand error is: ", err)
 	}
 
 	cs := *count
