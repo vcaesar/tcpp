@@ -185,10 +185,12 @@ func (p *Pacp) Decode(expr ...string) {
 		for _, layerType := range foundLayerTypes {
 			if layerType == layers.LayerTypeIPv4 {
 				fmt.Println("IPv4: ", ipLayer.SrcIP, "->", ipLayer.DstIP)
+				fmt.Printf("IP4: %v", ipLayer.Payload)
 			}
 
 			if layerType == layers.LayerTypeIPv6 {
 				fmt.Println("IPv6: ", ip6Layer.SrcIP, "->", ip6Layer.DstIP)
+				fmt.Printf("IP6: %v", ip6Layer.Payload)
 			}
 
 			if layerType == layers.LayerTypeTCP {
@@ -201,12 +203,12 @@ func (p *Pacp) Decode(expr ...string) {
 			}
 
 			if layerType == layers.LayerTypeTLS {
-				fmt.Printf("TSL: %s %s \n", tlsLayer.BaseLayer.LayerContents(),
+				fmt.Printf("TSL: %v %v \n", tlsLayer.BaseLayer.LayerContents(),
 					tlsLayer.BaseLayer.LayerPayload())
 
 				data := tlsLayer.AppData
 				for i := 0; i < len(data); i++ {
-					fmt.Printf("TSL: %s\n", data[i].Payload)
+					fmt.Printf("TSL: %v\n", data[i].Payload)
 				}
 			}
 		}
