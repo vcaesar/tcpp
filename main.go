@@ -31,7 +31,7 @@ var (
 	expr string
 	pc   find.Pacp
 
-	device  = flag.String("i", "", "devices")        // device: en0,bond0
+	device  = flag.String("i", "", "interface")      // device: en0,bond0
 	ofile   = flag.String("d", "", "dump file path") // gen dump file
 	read    = flag.String("r", "", "read dump file") // read dump file
 	snaplen = flag.Int("s", 1024, "snaplen")
@@ -44,7 +44,7 @@ var (
 func fg() {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr,
-			"usage: %s \n [ -i devices ] \n [ -t timeout ] \n [ -c count ] \n [ -s snaplen ] \n [ -d dump file ] \n [ -r read file ] \n [ -h show usage] \n [ expression ] \n", os.Args[0])
+			"usage: %s \n [ -i interface ] \n [ -t timeout ] \n [ -c count ] \n [ -s snaplen ] \n [ -d dump file ] \n [ -r read file ] \n [ -h show usage] \n [ expression ] \n", os.Args[0])
 		os.Exit(1)
 	}
 
